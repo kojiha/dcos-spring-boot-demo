@@ -1,0 +1,49 @@
+{
+    "id": "/test/spring-boot-demo",
+    "instances": 1,
+    "cpus": 0.1,
+    "mem": 256,
+    "disk": 0,
+    "gpus": 0,
+    "constraints": [],
+    "fetch": [],
+    "storeUrls": [],
+    "backoffSeconds": 1,
+    "backoffFactor": 1.15,
+    "maxLaunchDelaySeconds": 3600,
+    "container": {
+      "type": "DOCKER",
+      "volumes": [],
+      "docker": {
+        "image": "gitlab.app.dcos.local:50000/dcos/spring-boot-demo:latest",
+        "network": "BRIDGE",
+        "portMappings": [
+          {
+            "containerPort": 8080,
+            "hostPort": 0,
+            "protocol": "tcp"
+          }
+        ],
+        "privileged": false,
+        "parameters": [],
+        "forcePullImage": true
+      }
+    },
+    "healthChecks": [],
+    "readinessChecks": [],
+    "dependencies": [],
+    "upgradeStrategy": {
+      "minimumHealthCapacity": 1,
+      "maximumOverCapacity": 1
+    },
+    "unreachableStrategy": {
+      "inactiveAfterSeconds": 300,
+      "expungeAfterSeconds": 600
+    },
+    "killSelection": "YOUNGEST_FIRST",
+    "requirePorts": false,
+    "labels": {
+      "HAPROXY_GROUP": "external",
+      "HAPROXY_0_VHOST": "spring-boot-demo.app.dcos.local"
+    }
+  }
