@@ -12,7 +12,7 @@ node {
 
     // Build the Java project
     stage 'Build: Code'
-    sh './mvnw package'
+    sh '/bin/sh ./mvnw package'
 
     // Build Docker image
     stage 'Build: Docker Image'
